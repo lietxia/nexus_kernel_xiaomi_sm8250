@@ -15,8 +15,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      
+      - name: Set up toolchain
+        run: |
+          sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+          sudo apt update
+          sudo apt install -y libc6
+
       - name: Nexus Kernel Lmi
-        run: sudo apt update;sudo apt install -y libc6;bash build.sh null lmi null
+        run: bash build.sh null lmi null
         env:
            token: ${{ secrets.TOKEN }}
            chat_id: ${{ secrets.CHAT_ID }}

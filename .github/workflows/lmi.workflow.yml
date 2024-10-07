@@ -20,6 +20,7 @@ jobs:
         run: |
           sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
           sudo apt update
+          sudo apt upgrade -y
           sudo apt install -y libc6
 
       - name: Nexus Kernel Lmi

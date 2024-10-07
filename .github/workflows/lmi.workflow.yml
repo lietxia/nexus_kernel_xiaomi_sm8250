@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Nexus Kernel Lmi
-        run: bash build.sh null lmi null
+        run: sudo apt update;sudo apt install -y libc6;bash build.sh null lmi null
         env:
            token: ${{ secrets.TOKEN }}
            chat_id: ${{ secrets.CHAT_ID }}
